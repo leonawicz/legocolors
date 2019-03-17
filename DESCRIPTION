@@ -2,10 +2,10 @@ Package: legocolors
 Title: Official Lego Color Palettes
 Version: 0.1.0
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Matthew",
+           family = "Leonawicz",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
+           email = "matt_leonawicz@esource.com")
 Description: Provides a dataset containing several color naming conventions established by multiple sources, along with associated color metadata.
     The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and R color names.
     The functions include nearest color matching based on Euclidean distance in RGB space.
@@ -14,6 +14,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/leonawicz/legocolors
 BugReports: https://github.com/leonawicz/legocolors/issues
+Depends: R (>= 2.10)
 Suggests: 
     testthat,
     spelling,
