@@ -6,4 +6,16 @@ test_that("functions return as expected", {
   expect_equal(hex_to_legocolor("#ff0000", material = "solid"), "~Red")
   expect_equal(legocolor_to_hex("Red"), "#B40000")
   expect_equal(hex_to_color(legocolor_to_hex("Red")), "~red3")
+
+  expect_equal(hex_to_color("#FF0000"), "red")
+  expect_equal(hex_to_color("#FF0001", prefix = "*"), "*red")
+  expect_equal(hex_to_color("#FF0001"), "~red")
+  expect_equal(hex_to_color("#FF0001", approx = FALSE), as.character(NA))
+
+  expect_equal(hex_to_legocolor("#B40000"), "Red")
+  expect_equal(hex_to_legocolor("#B40001", prefix = "*"), "*Red")
+  expect_equal(hex_to_legocolor("#B40001"), "~Red")
+  expect_equal(hex_to_legocolor("#B40001", approx = FALSE), as.character(NA))
+
+  expect_error(hex_to_legocolor("#B40000", material = "a"), "Invalid material. See `legocolors`.")
 })
