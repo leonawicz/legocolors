@@ -1,0 +1,56 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.path = "man/figures/README-", out.width = "100%")
+```
+# legocolors <a href="man/figures/logo.png" _target="blank"><img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right"></a>
+
+<!-- badges: start -->
+[![Travis build status](https://travis-ci.org/leonawicz/legocolors.svg?branch=master)](https://travis-ci.org/leonawicz/legocolors)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/leonawicz/legocolors?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/legocolors)
+[![Codecov test coverage](https://codecov.io/gh/leonawicz/legocolors/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/legocolors?branch=master)
+<!-- badges: end -->
+
+`legocolors` provides a dataset containing several Lego color naming conventions established by various popular sources. It also provides functions for mapping between these color naming conventions as well as between Lego color names, hex colors, and R color names.
+
+By default, nearest colors are computed based on distance in RGB space when an exact match is not found. This behavior supports the purpose of exchanging arbitrary colors for known Lego colors when the goal is to actually acquire and build something out of Lego parts. This focus is also one of the reasons `legocolors` uses BrickLink color names as the default naming convention. See `legocolor` for details.
+
+## Installation
+
+You can install the released version of `legocolors` from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("legocolors")
+```
+
+You can install the development version of `legocolors` from GitHub with:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("leonawicz/legocolors")
+```
+
+## Example
+
+The key helper functions are `hex_to_legocolor` and `legocolor_to_hex`. `hex_to_color` is also provided for general convenience.
+
+```{r example}
+library(legocolors)
+hex_to_color(c("#ff0000", "#ff0001"))
+hex_to_legocolor("#ff0000")
+hex_to_legocolor("#ff0000", material = "solid")
+legocolor_to_hex("Red")
+hex_to_color(legocolor_to_hex("Red"))
+
+x <- topo.colors(10)
+hex_to_legocolor(x)
+hex_to_legocolor(x, material = "solid")
+hex_to_legocolor(x, def = "tlg", material = "solid")
+```
+
+What this package does not (yet) do: Currently, there is no ability to filter the color mapping to Lego colors known to be available specifically for simple brick and/or plate parts. This is why results may return exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building.
+

@@ -5,9 +5,11 @@
 #' @format A data frame with 11 columns and 165 rows.
 "legocolors"
 
-#' Lego color data.
+#' Lego color palettes.
 #'
 #' A named list of nine Lego color palettes based on `legocolors$material`.
+#' Because these palettes represent a meaningful segmentation of Lego material types,
+#' they are not intended to represent useful color palettes for mapping data values to colors.
 #'
 #' @format A named list of nine color palettes.
 "legopals"

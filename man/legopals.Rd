@@ -3,12 +3,14 @@
 \docType{data}
 \name{legopals}
 \alias{legopals}
-\title{Lego color data.}
+\title{Lego color palettes.}
 \format{A named list of nine color palettes.}
 \usage{
 legopals
 }
 \description{
 A named list of nine Lego color palettes based on `legocolors$material`.
+Because these palettes represent a meaningful segmentation of Lego material types,
+they are not intended to represent useful color palettes for mapping data values to colors.
 }
 \keyword{datasets}
