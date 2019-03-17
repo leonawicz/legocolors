@@ -1,0 +1,8 @@
+/* general formatting */
+p {
+  text-align: justify;
+}
+
+td p {
+  text-align: left;
+}
