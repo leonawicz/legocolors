@@ -17,7 +17,6 @@ BugReports: https://github.com/leonawicz/legocolors/issues
 Depends: R (>= 2.10)
 Suggests: 
     testthat,
-    spelling,
     covr
 Language: en-US
 RoxygenNote: 6.1.1
