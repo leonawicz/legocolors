@@ -47,15 +47,15 @@
 #' legocolor_to_hex("Red")
 #' hex_to_color(legocolor_to_hex("Red"))
 hex_to_color <- function(x, approx = TRUE, prefix = "~"){
-  m <- col2rgb(x)
-  col_map <- data.frame(name = colours(), t(col2rgb(colours())))
+  m <- grDevices::col2rgb(x)
+  col_map <- data.frame(name = grDevices::colours(), t(grDevices::col2rgb(grDevices::colours())))
   d <- data.frame(name = x, red = m["red", ], green = m["green", ], blue = m["blue", ])
   d <- rbind(d, col_map)
   m <- as.matrix(d[, -1])
   rownames(m) <- d[, 1]
   .f <- function(i){
-    id <- names(which.min(as.matrix(dist(m, upper = TRUE))[i,][-c(1:i)]))
-    hex2 <- do.call(rgb, c(as.list(col2rgb(id)), maxColorValue = 255))
+    id <- names(which.min(as.matrix(stats::dist(m, upper = TRUE))[i,][-c(1:i)]))
+    hex2 <- do.call(grDevices::rgb, c(as.list(grDevices::col2rgb(id)), maxColorValue = 255))
     if(hex2 == toupper(x[i])) id else if(approx) paste0(prefix, id) else as.character(NA)
   }
   sapply(seq_along(x), .f)
@@ -68,7 +68,7 @@ hex_to_legocolor <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
   lc <- legocolors::legocolors
   def <- match.arg(def)
   def <- switch(def, bricklink = "bl_name", ldraw = "ldraw_name", tlg = "lego_name", peeron = "peeron_name")
-  col_map <- data.frame(name = lc[[def]], t(col2rgb(lc$hex)), hex = lc$hex,
+  col_map <- data.frame(name = lc[[def]], t(grDevices::col2rgb(lc$hex)), hex = lc$hex,
                         material = lc$material, year_retired = lc$year_retired, stringsAsFactors = FALSE)
   col_map$name[is.na(col_map$name)] <- "Unnamed"
   if(!is.null(material)){
@@ -80,13 +80,13 @@ hex_to_legocolor <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
   hex_vec <- col_map$hex
   col_map$material <- col_map$year_retired <- col_map$hex <- NULL
 
-  m <- col2rgb(x)
+  m <- grDevices::col2rgb(x)
   d <- data.frame(name = x, red = m["red", ], green = m["green", ], blue = m["blue", ])
   d <- rbind(d, col_map)
   m <- as.matrix(d[, -1])
   rownames(m) <- d[, 1]
   .f <- function(i){
-    id <- names(which.min(as.matrix(dist(m, upper = TRUE))[i, ][-c(seq_along(x))]))
+    id <- names(which.min(as.matrix(stats::dist(m, upper = TRUE))[i, ][-c(seq_along(x))]))
     hex2 <- hex_vec[col_map$name == id]
     if(hex2[1] == toupper(x[i])) id else if(approx) paste0(prefix, id) else as.character(NA)
   }
