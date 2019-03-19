@@ -1,14 +1,15 @@
 Package: legocolors
 Title: Official Lego Color Palettes
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Matthew",
            family = "Leonawicz",
            role = c("aut", "cre"),
            email = "matt_leonawicz@esource.com")
 Description: Provides a dataset containing several color naming conventions established by multiple sources, along with associated color metadata.
-    The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and R color names.
-    The functions include nearest color matching based on Euclidean distance in RGB space.
+    The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and 'R' color names.
+    The functions include nearest color matching based on Euclidean distance in RGB space. 
+    Naming conventions for color mapping include those from 'BrickLink' (<https://www.bricklink.com>), 'The Lego Group' (<https://www.lego.com>), 'LDraw' (<https://www.ldraw.org/>), and 'Peeron' (http://www.peeron.com/).
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
