@@ -1,3 +1,7 @@
+# legocolors 0.1.2
+
+* Additional formatting fix.
+
 # legocolors 0.1.1
 
 * Added formatting updates to DESCRIPTION and included relevant URLs.

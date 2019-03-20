@@ -7,4 +7,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release, resubmission: formatting and URL updates have been made to DESCRIPTION per reviewer's request.
+* This is a new release, resubmission: final formatting issue in DESCRIPTION now fixed.
