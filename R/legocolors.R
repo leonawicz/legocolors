@@ -7,7 +7,7 @@
 
 #' Lego color palettes.
 #'
-#' A named list of nine Lego color palettes based on `legocolors$material`.
+#' A named list of nine Lego color palettes based on \code{legocolors$material}.
 #' Because these palettes represent a meaningful segmentation of Lego material types,
 #' they are not intended to represent useful color palettes for mapping data values to colors.
 #'

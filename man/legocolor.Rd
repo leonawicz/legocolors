@@ -21,11 +21,11 @@ legocolor_to_hex(x, def = c("bricklink", "ldraw", "tlg", "peeron"))
 
 \item{prefix}{character, prefix for approximate color matches.}
 
-\item{def}{character, the Lego color name definition to apply: `"bricklink"`, `"ldraw"`, `"tlg"` or `"peeron"`. See details.}
+\item{def}{character, the Lego color name definition to apply: \code{"bricklink"}, \code{"ldraw"}, \code{"tlg"} or \code{"peeron"}. See details.}
 
-\item{material}{logical, consider only the subset of Lego color names by filtering on levels of `legocolors$material`. By default, all are considered.}
+\item{material}{logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.}
 
-\item{retired}{logical, filter out Lego colors that are retired, defaults to `FALSE`.}
+\item{retired}{logical, filter out Lego colors that are retired, defaults to \code{FALSE}.}
 }
 \value{
 character vector of color names or hex colors
@@ -36,30 +36,34 @@ Map between hex and color names.
 \details{
 These functions map between hex color codes and color names. Convert any color palette to a palette of the most closely matched official Lego colors.
 
-The two complimentary Lego color mapping functions are `hex_to_legocolors` and `legocolors_to_hex`.
+The two complimentary Lego color mapping functions are \code{hex_to_legocolors} and \code{legocolors_to_hex}.
 The first takes a hex color string and converts to the nearest valid Lego color name by Euclidean distance.
 The second takes a valid Lego color name and converts to hex.
 
-Valid Lego color names are determined by the definition, `def`. The four options provide different name sets for existing Lego colors.
-The default is `def = "bricklink"`. [BrickLink](https://www.bricklink.com) is the default naming convention source for several reasons:
+Valid Lego color names are determined by the definition, \code{def}. The four options provide different name sets for existing Lego colors.
+The default is \code{def = "bricklink"}. \href{https://www.bricklink.com}{BrickLink} is the default naming convention source for several reasons:
 
-* It is the most comprehensive and widely used.
-* In terms of obtaining Lego parts online:
-    * BrickLink serves more countries worldwide than The Lego Group's (TLG) Pick-A-Brick service.
-    * BrickLink offers far more variety, quantity and custom order filling than Pick-A-Brick.
-    * Pick-A-Brick has far higher prices and a vastly smaller selection of items and colors.
-* The Adult Fans of Lego (AFOL) community is centered around BrickLink and members, buyers and sellers alike, are well versed in BrickLink Lego color naming conventions. Few are as familiar with official Lego color names.
-* Lego color naming conventions established by other entities, including the official Lego color names known to the public, are less complete.
-* There is also the BrickOwl website for custom part ordering, which uses official TLG color names, but is much smaller than BrickLink and tends to have significantly higher prices.
+\itemize{
+\item It is the most comprehensive and widely used.
+\item In terms of obtaining Lego parts online:
+\itemize{
+\item BrickLink serves more countries worldwide than The Lego Group's (TLG) Pick-A-Brick service.
+\item BrickLink offers far more variety, quantity and custom order filling than Pick-A-Brick.
+\item Pick-A-Brick has far higher prices and a vastly smaller selection of items and colors.
+}
+\item The Adult Fans of Lego (AFOL) community is centered around BrickLink and members, buyers and sellers alike, are well versed in BrickLink Lego color naming conventions. Few are as familiar with official Lego color names.
+\item Lego color naming conventions established by other entities, including the official Lego color names known to the public, are less complete.
+\item There is also the BrickOwl website for custom part ordering, which uses official TLG color names, but is much smaller than BrickLink and tends to have significantly higher prices.
+}
 
 Essentially, when converting an image or 3D model in R into a set of Lego parts that must be custom ordered to construct your design,
 BrickLink is the clear best option for obtaining the most complete set of parts required and at the lowest price.
 
-If `approx = FALSE`, an unmatched element returns `NA`.
+If \code{approx = FALSE}, an unmatched element returns \code{NA}.
 
-`hex_to_color` is provided for general convenience. It converts hex color codes to the familiar R color names.
-Consistent with the Lego-specific mapping functions, by default `approx = TRUE` returns the nearest color name based on Euclidean distance.
-`prefix` allows for prepending an identifier to the beginning of any color name that a hex color code does not match exactly.
+\code{hex_to_color} is provided for general convenience. It converts hex color codes to the familiar R color names.
+Consistent with the Lego-specific mapping functions, by default \code{approx = TRUE} returns the nearest color name based on Euclidean distance.
+\code{prefix} allows for prepending an identifier to the beginning of any color name that a hex color code does not match exactly.
 }
 \examples{
 hex_to_color(c("#ff0000", "#ff0001"))
