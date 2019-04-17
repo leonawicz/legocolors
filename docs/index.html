@@ -18,8 +18,9 @@
 <script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Official Lego Color Palettes">
 <meta property="og:description" content="Provides a dataset containing several color naming conventions established by multiple sources, along with associated color metadata.
-    The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and 'R' color names.
-    The functions include nearest color matching based on Euclidean distance in RGB space. 
+    The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and 'R' color names, 
+    making it easy to convert any color palette to one based on existing Lego colors while keeping as close to the original color palette as possible.
+    The functions use nearest color matching based on Euclidean distance in RGB space. 
     Naming conventions for color mapping include those from 'BrickLink' (&lt;https://www.bricklink.com&gt;), 'The Lego Group' (&lt;https://www.lego.com&gt;), 'LDraw' (&lt;https://www.ldraw.org/&gt;), and 'Peeron' (&lt;http://www.peeron.com/&gt;).">
 <meta property="og:image" content="http://leonawicz.github.io/legocolors/logo.png">
 <meta name="twitter:card" content="summary">
@@ -47,7 +48,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">legocolors</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.3</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -105,9 +106,9 @@
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("remotes")</span>
 remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"leonawicz/legocolors"</span>)</code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="palette-conversions" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#palette-conversions" class="anchor"></a>Palette conversions</h2>
 <p>The key helper functions are <code>hex_to_legocolor</code> and <code>legocolor_to_hex</code>. <code>hex_to_color</code> is also provided for general convenience.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(legocolors)
 <span class="kw"><a href="reference/legocolor.html">hex_to_color</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#ff0000"</span>, <span class="st">"#ff0001"</span>))
@@ -139,6 +140,26 @@ x &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumenta
 <span class="co">#&gt;  [5] "~Bright Green"           "~Bright Yellowish Green"</span>
 <span class="co">#&gt;  [7] "~Bright Yellow"          "~Bright Yellow"         </span>
 <span class="co">#&gt;  [9] "~Cool Yellow"            "~Light Nougat"</span></code></pre></div>
+<p>While different sets of Lego colors are organized by <code>material</code> type, e.g., solid colors, semi-transparent colors, etc., these palettes are not useful for plotting data. The greatest value comes from converting useful color palettes to those comprised of existing Lego colors while still keeping as close to the original palette as possible.</p>
+</div>
+<div id="palette-preview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#palette-preview" class="anchor"></a>Palette preview</h2>
+<p>The <code>view_legopal</code> function can be used to quickly see a Lego color palette. It can plot a named <code>material</code> palette, but like the functions above, it can also display a converted palette if given an arbitrary vector of hex color values.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="reference/legocolor.html">view_legopal</a></span>(<span class="st">"solid"</span>)</code></pre></div>
+<p><img src="reference/figures/README-plot-1.png" width="100%"></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+r &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/grDevices/topics/palettes">rainbow</a></span>(<span class="dv">9</span>)
+r
+<span class="co">#&gt; [1] "#FF0000FF" "#FFAA00FF" "#AAFF00FF" "#00FF00FF" "#00FFAAFF" "#00AAFFFF"</span>
+<span class="co">#&gt; [7] "#0000FFFF" "#AA00FFFF" "#FF00AAFF"</span>
+
+<span class="kw"><a href="reference/legocolor.html">view_legopal</a></span>(r, <span class="dt">material =</span> <span class="st">"solid"</span>, <span class="dt">show_labels =</span> <span class="ot">TRUE</span>, <span class="dt">label_size =</span> <span class="fl">0.7</span>)</code></pre></div>
+<p><img src="reference/figures/README-plot-2.png" width="100%"></p>
+</div>
+<div id="to-do-next" class="section level2">
+<h2 class="hasAnchor">
+<a href="#to-do-next" class="anchor"></a>To do next</h2>
 <p>What this package does not (yet) do: Currently, there is no ability to filter the color mapping to Lego colors known to be available specifically for simple brick and/or plate parts. This is why results may return exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building.</p>
 </div>
 </div>
