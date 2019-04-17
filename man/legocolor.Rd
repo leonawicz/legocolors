@@ -5,6 +5,7 @@
 \alias{hex_to_color}
 \alias{hex_to_legocolor}
 \alias{legocolor_to_hex}
+\alias{view_legopal}
 \title{Color mapping}
 \usage{
 hex_to_color(x, approx = TRUE, prefix = "~")
@@ -13,6 +14,10 @@ hex_to_legocolor(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
   approx = TRUE, prefix = "~", material = NULL, retired = FALSE)
 
 legocolor_to_hex(x, def = c("bricklink", "ldraw", "tlg", "peeron"))
+
+view_legopal(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
+  approx = TRUE, prefix = "~", material = NULL, retired = FALSE,
+  show_labels = FALSE, label_size = 1)
 }
 \arguments{
 \item{x}{character, hex color or color name. May be a vector. See details.}
@@ -26,6 +31,10 @@ legocolor_to_hex(x, def = c("bricklink", "ldraw", "tlg", "peeron"))
 \item{material}{logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.}
 
 \item{retired}{logical, filter out Lego colors that are retired, defaults to \code{FALSE}.}
+
+\item{show_labels}{logical, show color name and hex value in palatte preview.}
+
+\item{label_size}{numeric, text size.}
 }
 \value{
 character vector of color names or hex colors
@@ -71,4 +80,9 @@ hex_to_legocolor("#ff0000")
 hex_to_legocolor("#ff0000", material = "solid")
 legocolor_to_hex("Red")
 hex_to_color(legocolor_to_hex("Red"))
+
+if(interactive()){
+  view_legopal(rainbow(9), material = "solid",
+               show_labels = TRUE, label_size = 0.7)
+}
 }

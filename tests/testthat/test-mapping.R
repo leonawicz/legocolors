@@ -18,4 +18,9 @@ test_that("functions return as expected", {
   expect_equal(hex_to_legocolor("#B40001", approx = FALSE), as.character(NA))
 
   expect_error(hex_to_legocolor("#B40000", material = "a"), "Invalid material. See `legocolors`.")
+
+  expect_is(view_legopal("solid"), "NULL")
+  expect_is(view_legopal(rainbow(9), show_labels = TRUE, label_size = 0.7), "NULL")
 })
+
+unlink("Rplots.pdf", force = TRUE)

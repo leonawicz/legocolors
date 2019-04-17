@@ -25,8 +25,8 @@ You can install the development version of `legocolors` from GitHub with:
 remotes::install_github("leonawicz/legocolors")
 ```
 
-Example
--------
+Palette conversions
+-------------------
 
 The key helper functions are `hex_to_legocolor` and `legocolor_to_hex`. `hex_to_color` is also provided for general convenience.
 
@@ -62,5 +62,33 @@ hex_to_legocolor(x, def = "tlg", material = "solid")
 #>  [7] "~Bright Yellow"          "~Bright Yellow"         
 #>  [9] "~Cool Yellow"            "~Light Nougat"
 ```
+
+While different sets of Lego colors are organized by `material` type, e.g., solid colors, semi-transparent colors, etc., these palettes are not useful for plotting data. The greatest value comes from converting useful color palettes to those comprised of existing Lego colors while still keeping as close to the original palette as possible.
+
+Palette preview
+---------------
+
+The `view_legopal` function can be used to quickly see a Lego color palette. It can plot a named `material` palette, but like the functions above, it can also display a converted palette if given an arbitrary vector of hex color values.
+
+``` r
+view_legopal("solid")
+```
+
+<img src="man/figures/README-plot-1.png" width="100%" />
+
+``` r
+
+r <- rainbow(9)
+r
+#> [1] "#FF0000FF" "#FFAA00FF" "#AAFF00FF" "#00FF00FF" "#00FFAAFF" "#00AAFFFF"
+#> [7] "#0000FFFF" "#AA00FFFF" "#FF00AAFF"
+
+view_legopal(r, material = "solid", show_labels = TRUE, label_size = 0.7)
+```
+
+<img src="man/figures/README-plot-2.png" width="100%" />
+
+To do next
+----------
 
 What this package does not (yet) do: Currently, there is no ability to filter the color mapping to Lego colors known to be available specifically for simple brick and/or plate parts. This is why results may return exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building.

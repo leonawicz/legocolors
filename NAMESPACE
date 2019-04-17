@@ -3,3 +3,4 @@
 export(hex_to_color)
 export(hex_to_legocolor)
 export(legocolor_to_hex)
+export(view_legopal)

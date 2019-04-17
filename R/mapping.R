@@ -39,6 +39,8 @@
 #' @param prefix character, prefix for approximate color matches.
 #' @param material logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.
 #' @param retired logical, filter out Lego colors that are retired, defaults to \code{FALSE}.
+#' @param show_labels logical, show color name and hex value in palatte preview.
+#' @param label_size numeric, text size.
 #'
 #' @return character vector of color names or hex colors
 #' @export
@@ -50,6 +52,11 @@
 #' hex_to_legocolor("#ff0000", material = "solid")
 #' legocolor_to_hex("Red")
 #' hex_to_color(legocolor_to_hex("Red"))
+#'
+#' if(interactive()){
+#'   view_legopal(rainbow(9), material = "solid",
+#'                show_labels = TRUE, label_size = 0.7)
+#' }
 hex_to_color <- function(x, approx = TRUE, prefix = "~"){
   m <- grDevices::col2rgb(x)
   col_map <- data.frame(name = grDevices::colours(), t(grDevices::col2rgb(grDevices::colours())))
@@ -105,4 +112,25 @@ legocolor_to_hex <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron")){
   lc <- legocolors::legocolors
   idx <- match(x, lc[[def]])
   lc$hex[idx]
+}
+
+#' @export
+#' @rdname legocolor
+view_legopal <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
+                         approx = TRUE, prefix = "~", material = NULL, retired = FALSE,
+                         show_labels = FALSE, label_size = 1){
+  if(length(x) == 1 && x %in% names(legocolors::legopals)) x <- legocolors::legopals[[x]]
+  lego <- hex_to_legocolor(x, def, approx, prefix, material, retired)
+  x <- legocolor_to_hex(gsub(prefix, "", lego), def)
+  n <- length(x)
+  nrmax <- ceiling(sqrt(n))
+  xs <- rep(1:nrmax, length = n)
+  ys <- rep(ceiling(n / nrmax):1, each = nrmax)[1:n]
+  w <- 0.4
+  graphics::par(mar = c(0, 0, 1, 0))
+  graphics::plot(1, 1, type = "n", xlim = range(xs) + c(-w, w), ylim = range(ys) + c(-w, w), asp = 1,
+                 axes = FALSE, main = "Lego color palette")
+  sapply(1:n, function(i) graphics::rect(xs[i] - w, ys[i] - w, xs[i] + w, ys[i] + w, col = x[i], border = "black"))
+  if(show_labels) sapply(1:n, function(i) graphics::text(xs[i], ys[i], paste0(lego[i], "\n", x[i]), cex = label_size))
+  invisible()
 }
