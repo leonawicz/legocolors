@@ -157,10 +157,45 @@ r
 <span class="kw"><a href="reference/legocolor.html">view_legopal</a></span>(r, <span class="dt">material =</span> <span class="st">"solid"</span>, <span class="dt">show_labels =</span> <span class="ot">TRUE</span>, <span class="dt">label_size =</span> <span class="fl">0.7</span>)</code></pre></div>
 <p><img src="reference/figures/README-plot-2.png" width="100%"></p>
 </div>
-<div id="to-do-next" class="section level2">
+<div id="recommended-colors" class="section level2">
 <h2 class="hasAnchor">
-<a href="#to-do-next" class="anchor"></a>To do next</h2>
-<p>What this package does not (yet) do: Currently, there is no ability to filter the color mapping to Lego colors known to be available specifically for simple brick and/or plate parts. This is why results may return exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building.</p>
+<a href="#recommended-colors" class="anchor"></a>Recommended colors</h2>
+<p>Filtering to a decent set of Lego colors that are relatively easy to acquire online at BrickLink.com for simple brick and/or plate parts can be done using the <code>recommended</code> column in the <code>legocolors</code> dataset. This logical column is originally derived using the following criteria:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'dplyr'</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     filter, lag</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     intersect, setdiff, setequal, union</span>
+rec &lt;-<span class="st"> </span><span class="kw">arrange</span>(legocolors, <span class="kw">desc</span>(bl_bp)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(year_retired) <span class="op">&amp;</span><span class="st"> </span>material <span class="op">==</span><span class="st"> "solid"</span> <span class="op">&amp;</span><span class="st"> </span>bl_bp <span class="op">&gt;</span><span class="st"> </span><span class="fl">0.1</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">select</span>(bl_name, bl_bp)
+
+<span class="kw">distinct</span>(rec)
+<span class="co">#&gt; # A tibble: 36 x 2</span>
+<span class="co">#&gt;    bl_name           bl_bp</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 White             1    </span>
+<span class="co">#&gt;  2 Black             0.962</span>
+<span class="co">#&gt;  3 Light Bluish Gray 0.927</span>
+<span class="co">#&gt;  4 Red               0.912</span>
+<span class="co">#&gt;  5 Dark Bluish Gray  0.896</span>
+<span class="co">#&gt;  6 Tan               0.851</span>
+<span class="co">#&gt;  7 Blue              0.803</span>
+<span class="co">#&gt;  8 Yellow            0.797</span>
+<span class="co">#&gt;  9 Reddish Brown     0.731</span>
+<span class="co">#&gt; 10 Green             0.679</span>
+<span class="co">#&gt; # ... with 26 more rows</span>
+
+<span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/filter">filter</a></span>(legocolors, recommended <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/NA">is.na</a></span>(year_released))<span class="op">$</span>hex <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw"><a href="reference/legocolor.html">view_legopal</a></span>(<span class="dt">show_labels =</span> <span class="ot">TRUE</span>, <span class="dt">label_size =</span> <span class="fl">0.5</span>)</code></pre></div>
+<p><img src="reference/figures/README-recommended-1.png" width="100%"></p>
+<p>The <code>bl_bp</code> column provides a rough estimate of the relative availability of simple bricks and/or plates in a particular color for sale worldwide on BrickLink, scaled between 0 and 1. This is only computed when the package is updated, but these values should not fluctuate wildly. The metric used is also not perfect, but it will at least provide a much more reasonable set of colors in terms of reasonably obtainable bricks and plates.</p>
+<p>You can use the variables in <code>legocolors</code> differently to derive your own subset of colors that are relatively acquirable. This is worth considering because even though BrickLink consistently offers the widest selection and greatest quantity at the lowest price, supply and demand leads to some parts in some colors being prohibitively expensive to acquire in quantity. When determining what colors you wish to use to build a physical model, you will save an incredible amount of money if you can accept limiting your palette to the most common Lego colors.</p>
+<p>The rough metric used here represents an initial step at avoiding Lego color palettes containing the more exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building with basic bricks and plates.</p>
 </div>
 </div>
   </div>
