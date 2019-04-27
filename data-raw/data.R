@@ -38,8 +38,42 @@ d$hex[match(missing_colors$bl_name, d$bl_name)] <- missing_colors$hex
 legocolors <- select(d, -c(r, b, g)) %>% mutate_at(c(2, 4, 9:10), as.integer) %>%
   mutate(material = factor(tolower(material), levels = unique(tolower(material)))) %>% arrange(material, bl_id)
 legopals <- split(legocolors$hex, legocolors$material)
+
+bl_forsale_color <- function(color){
+  l <- legocolors
+  if(is.na(suppressWarnings(as.integer(color)))){
+    color <- l$bl_id[l$bl_name == color]
+    if(!length(color)) stop("Invalid BrickLink color name.", call. = FALSE)
+  }
+  if(!color %in% l$bl_id) stop("Invalid BrickLink color ID.", call. = FALSE)
+  url <- paste0("https://www.bricklink.com/browseList.asp?colorID=", color, "&itemType=P&v=3")
+  try(x <- xml2::read_html(url) %>% rvest::html_nodes("#id-main-legacy-table table") %>% rvest::html_table(fill = TRUE))
+  if(inherits(x, "try-error")) return(0L)
+  print(color)
+  x <- dplyr::slice(x[[1]], 2)
+  x <- x[!is.na(x)]
+  x <- paste(unlist(x), collapse = "")
+  x1 <- gsub(".*(\\)Brick \\(\\d+).*", "\\1", x)
+  if(x1 == x) x1 <- ""
+  x2 <- gsub(".*(\\)Plate \\(\\d+).*", "\\1", x)
+  if(x2 == x) x2 <- ""
+  sum(as.integer(substring(c(x1, x2), 9)), na.rm = TRUE)
+}
+
+bl_bp_forsale_score <- function(x){
+  x <- sapply(x, bl_forsale_color)
+  x <- x / max(x)
+}
+
+legocolors$bl_bp <- bl_bp_forsale_score(legocolors$bl_id) # takes a few minutes
+
+d_rec <- arrange(legocolors, desc(bl_bp)) %>%
+  filter(is.na(year_retired) & material == "solid" & bl_bp > 0.1) %>%
+  select(bl_name, bl_bp)
+d_rec
+
+legocolors$recommended <- legocolors$bl_name %in% d_rec$bl_name
+
 usethis::use_data(legocolors, legopals, overwrite = TRUE)
 
-# library(pals)
-# do.call(pal.bands, c(lego_palettes, list(labels = names(lego_palettes), main = "Lego color palettes")))
 

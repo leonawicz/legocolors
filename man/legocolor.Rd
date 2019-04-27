@@ -32,7 +32,7 @@ view_legopal(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
 
 \item{retired}{logical, filter out Lego colors that are retired, defaults to \code{FALSE}.}
 
-\item{show_labels}{logical, show color name and hex value in palatte preview.}
+\item{show_labels}{logical, show color name and hex value in palette preview.}
 
 \item{label_size}{numeric, text size.}
 }

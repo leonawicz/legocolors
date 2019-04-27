@@ -4,7 +4,7 @@
 \name{legocolors}
 \alias{legocolors}
 \title{Lego color data.}
-\format{A data frame with 11 columns and 165 rows.}
+\format{A data frame with 13 columns and 165 rows.}
 \usage{
 legocolors
 }

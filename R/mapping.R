@@ -39,7 +39,7 @@
 #' @param prefix character, prefix for approximate color matches.
 #' @param material logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.
 #' @param retired logical, filter out Lego colors that are retired, defaults to \code{FALSE}.
-#' @param show_labels logical, show color name and hex value in palatte preview.
+#' @param show_labels logical, show color name and hex value in palette preview.
 #' @param label_size numeric, text size.
 #'
 #' @return character vector of color names or hex colors
