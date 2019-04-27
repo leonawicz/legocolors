@@ -7,4 +7,4 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is an update release. Functionality and documentation have been updated.
+* This is an update release. Supporting dataset and documentation have been updated.
