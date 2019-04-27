@@ -1,6 +1,7 @@
 # legocolors 0.2.0
 
 * Added `view_legopal` function.
+* Added new columns `bl_bp` (rough BrickLink brick/plate availability metric) and `recommended` (recommended colors, based on relative ease of acquirement) to the `legocolors` dataset.
 * Documentation updates.
 
 # legocolors 0.1.2
