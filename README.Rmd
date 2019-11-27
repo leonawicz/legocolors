@@ -7,19 +7,23 @@ output: github_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.path = "man/figures/README-", out.width = "100%")
 ```
-# legocolors <a href="man/figures/logo.png" _target="blank"><img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right"></a>
+
+# legocolors <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 **Author:** [Matthew Leonawicz](https://leonawicz.github.io/blog/) <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
 <image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
 <br/>
 **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
-<!-- badges: start -->
-[![CRAN status](http://www.r-pkg.org/badges/version/legocolors)](https://cran.r-project.org/package=legocolors)
-[![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors) 
-[![Rdoc](http://www.rdocumentation.org/badges/version/legocolors)](http://www.rdocumentation.org/packages/legocolors)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Travis build status](https://travis-ci.org/leonawicz/legocolors.svg?branch=master)](https://travis-ci.org/leonawicz/legocolors)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/leonawicz/legocolors?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/legocolors)
 [![Codecov test coverage](https://codecov.io/gh/leonawicz/legocolors/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/legocolors?branch=master)
-<!-- badges: end -->
+
+[![CRAN status](http://www.r-pkg.org/badges/version/legocolors)](https://cran.r-project.org/package=legocolors)
+[![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors) 
+[![Github Stars](https://img.shields.io/github/stars/leonawicz/legocolors.svg?style=social&label=Github)](https://github.com/leonawicz/legocolors)
+
+[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
 
 `legocolors` provides a dataset containing several Lego color naming conventions established by various popular sources. It also provides functions for mapping between these color naming conventions as well as between Lego color names, hex colors, and R color names.
 
@@ -27,15 +31,15 @@ By default, nearest colors are computed based on distance in RGB space when an e
 
 ## Installation
 
-You can install the released version of `legocolors` from [CRAN](https://CRAN.R-project.org) with:
+Install the CRAN release of `legocolors` with
 
-``` r
+```r
 install.packages("legocolors")
 ```
 
-You can install the development version of `legocolors` from GitHub with:
+Install the development version from GitHub with
 
-``` r
+```r
 # install.packages("remotes")
 remotes::install_github("leonawicz/legocolors")
 ```
@@ -94,3 +98,7 @@ The `bl_bp` column provides a rough estimate of the relative availability of sim
 You can use the variables in `legocolors` differently to derive your own subset of colors that are relatively acquirable. This is worth considering because even though BrickLink consistently offers the widest selection and greatest quantity at the lowest price, supply and demand leads to some parts in some colors being prohibitively expensive to acquire in quantity. When determining what colors you wish to use to build a physical model, you will save an incredible amount of money if you can accept limiting your palette to the most common Lego colors.
 
 The rough metric used here represents an initial step at avoiding Lego color palettes containing the more exotic, difficult to acquire colors, or colors which are only used in specialty parts that may not be amenable to general building with basic bricks and plates.
+
+---
+
+Please note that the `legocolors` project is released with a [Contributor Code of Conduct](https://leonawicz.github.io/legocolors/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

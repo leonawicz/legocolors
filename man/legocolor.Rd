@@ -10,14 +10,27 @@
 \usage{
 hex_to_color(x, approx = TRUE, prefix = "~")
 
-hex_to_legocolor(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
-  approx = TRUE, prefix = "~", material = NULL, retired = FALSE)
+hex_to_legocolor(
+  x,
+  def = c("bricklink", "ldraw", "tlg", "peeron"),
+  approx = TRUE,
+  prefix = "~",
+  material = NULL,
+  retired = FALSE
+)
 
 legocolor_to_hex(x, def = c("bricklink", "ldraw", "tlg", "peeron"))
 
-view_legopal(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
-  approx = TRUE, prefix = "~", material = NULL, retired = FALSE,
-  show_labels = FALSE, label_size = 1)
+view_legopal(
+  x,
+  def = c("bricklink", "ldraw", "tlg", "peeron"),
+  approx = TRUE,
+  prefix = "~",
+  material = NULL,
+  retired = FALSE,
+  show_labels = FALSE,
+  label_size = 1
+)
 }
 \arguments{
 \item{x}{character, hex color or color name. May be a vector. See details.}

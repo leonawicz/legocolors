@@ -1,6 +1,6 @@
 Package: legocolors
 Title: Official Lego Color Palettes
-Version: 0.2.0
+Version: 0.2.1
 Authors@R: 
     person(given = "Matthew",
            family = "Leonawicz",
@@ -21,4 +21,4 @@ Suggests:
     testthat,
     covr
 Language: en-US
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.1

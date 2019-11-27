@@ -12,3 +12,5 @@
 ^data-raw$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^README\.html$
+^codemeta\.json$

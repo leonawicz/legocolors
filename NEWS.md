@@ -1,3 +1,7 @@
+# legocolors 0.2.1
+
+* In progress.
+
 # legocolors 0.2.0
 
 * Added `view_legopal` function.
