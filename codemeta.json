@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "legocolors",
   "description": "Provides a dataset containing several color naming conventions established by multiple sources, along with associated color metadata.\n    The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and 'R' color names, \n    making it easy to convert any color palette to one based on existing Lego colors while keeping as close to the original color palette as possible.\n    The functions use nearest color matching based on Euclidean distance in RGB space. \n    Naming conventions for color mapping include those from 'BrickLink' (<https://www.bricklink.com>), 'The Lego Group' (<https://www.lego.com>), 'LDraw' (<https://www.ldraw.org/>), and 'Peeron' (<http://www.peeron.com/>).",
@@ -7,14 +10,14 @@
   "codeRepository": "https://github.com/leonawicz/legocolors",
   "issueTracker": "https://github.com/leonawicz/legocolors/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -76,8 +79,12 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/legocolors/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/legocolors/blob/master/README.md",
-  "fileSize": "78.158KB",
-  "contIntegration": ["https://travis-ci.org/leonawicz/legocolors", "https://ci.appveyor.com/project/leonawicz/legocolors", "https://codecov.io/gh/leonawicz/legocolors?branch=master"],
+  "fileSize": "79.673KB",
+  "contIntegration": [
+    "https://travis-ci.org/leonawicz/legocolors",
+    "https://ci.appveyor.com/project/leonawicz/legocolors",
+    "https://codecov.io/gh/leonawicz/legocolors?branch=master"
+  ],
   "developmentStatus": "http://www.repostatus.org/#active",
   "relatedLink": "https://CRAN.R-project.org/package=legocolors"
 }

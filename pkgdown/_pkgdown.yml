@@ -8,6 +8,22 @@ authors:
   Matthew Leonawicz:
     href: https://github.com/leonawicz
 
+reference:
+- title: Package
+  contents:
+  - legocolors-package
+- title: Datasets
+  contents:
+  - legocolors
+  - legopals
+- title: Color mapping
+  desc: "Map between R color names, hex codes and Lego color definitions"
+  contents:
+  - legocolor
+- title: Additional palettes
+  contents:
+  - lc_palettes
+
 navbar:
   right:
     - icon: fa-github fa-lg

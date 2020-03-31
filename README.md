@@ -75,10 +75,10 @@ hex_to_color(legocolor_to_hex("Red"))
 x <- topo.colors(10)
 hex_to_legocolor(x)
 #>  [1] "~Dark Purple"              "~Blue"                     "~Trans-Dark Blue"          "~Medium Azure"             "~Bright Green"             "~Lime"                    
-#>  [7] "~Glitter Trans-Neon Green" "~Trans-Yellow"             "~Trans-Neon Green"         "~Light Flesh"
+#>  [7] "~Glitter Trans-Neon Green" "~Trans-Yellow"             "~Trans-Neon Green"         "~Light Nougat"
 hex_to_legocolor(x, material = "solid")
 #>  [1] "~Dark Purple"         "~Blue"                "~Dark Azure"          "~Medium Azure"        "~Bright Green"        "~Lime"                "~Yellow"             
-#>  [8] "~Yellow"              "~Bright Light Yellow" "~Light Flesh"
+#>  [8] "~Yellow"              "~Bright Light Yellow" "~Light Nougat"
 hex_to_legocolor(x, def = "tlg", material = "solid")
 #>  [1] "~Medium Lilac"           "~Bright Blue"            "~Dark Azur"              "~Medium Azur"            "~Bright Green"           "~Bright Yellowish Green"
 #>  [7] "~Bright Yellow"          "~Bright Yellow"          "~Cool Yellow"            "~Light Nougat"
@@ -116,60 +116,32 @@ view_legopal(r, material = "solid", show_labels = TRUE, label_size = 0.7)
 
 ## Recommended colors
 
+Dealing with
+
+  - Available colors for generic bricks and plates but prohibitively
+    expensive.
+  - Available colors for generic bricks and plates but with low supply.
+  - Colors used only for exotic/specialty parts (not available for
+    bricks and plates).
+
 Filtering to a decent set of Lego colors that are relatively easy to
-acquire online at BrickLink.com for simple brick and/or plate parts can
-be done using the `recommended` column in the `legocolors` dataset. This
-logical column is originally derived using the following criteria:
+acquire online at BrickLink.com for simple brick and/or plate parts, and
+relatively affordable, is largely the responsibility of the user. There
+is a `recommended` column in the `legocolors` dataset. However, a
+human-derived recommendation column would be better (feel free to submit
+a PR if you’d like to improve the package).
 
-``` r
-library(dplyr)
-rec <- arrange(legocolors, desc(bl_bp)) %>%
-  filter(is.na(year_retired) & material == "solid" & bl_bp > 0.1) %>%
-  select(bl_name, bl_bp)
-
-distinct(rec)
-#> # A tibble: 36 x 2
-#>    bl_name           bl_bp
-#>    <chr>             <dbl>
-#>  1 White             1    
-#>  2 Black             0.962
-#>  3 Light Bluish Gray 0.927
-#>  4 Red               0.912
-#>  5 Dark Bluish Gray  0.896
-#>  6 Tan               0.851
-#>  7 Blue              0.803
-#>  8 Yellow            0.797
-#>  9 Reddish Brown     0.731
-#> 10 Green             0.679
-#> # ... with 26 more rows
-
-filter(legocolors, recommended & !is.na(year_released))$hex %>%
-  view_legopal(show_labels = TRUE, label_size = 0.5)
-```
-
-<img src="man/figures/README-recommended-1.png" width="100%" />
-
-The `bl_bp` column provides a rough estimate of the relative
-availability of simple bricks and/or plates in a particular color for
-sale worldwide on BrickLink, scaled between 0 and 1. This is only
-computed when the package is updated, but these values should not
-fluctuate wildly. The metric used is also not perfect, but it will at
-least provide a much more reasonable set of colors in terms of
-reasonably obtainable bricks and plates.
-
-You can use the variables in `legocolors` differently to derive your own
-subset of colors that are relatively acquirable. This is worth
+In the previous version of `legocolors`, brick- and plate- specific
+data, excluding more exotic parts, was scraped from the website catalog,
+but this has become too difficult to do reliably. For now, you will have
+to use your personal Lego knowledge to filter out irrelevant or
+problematic colors from the complete official set. This is worth
 considering because even though BrickLink consistently offers the widest
 selection and greatest quantity at the lowest price, supply and demand
 leads to some parts in some colors being prohibitively expensive to
 acquire in quantity. When determining what colors you wish to use to
 build a physical model, you will save an incredible amount of money if
 you can accept limiting your palette to the most common Lego colors.
-
-The rough metric used here represents an initial step at avoiding Lego
-color palettes containing the more exotic, difficult to acquire colors,
-or colors which are only used in specialty parts that may not be
-amenable to general building with basic bricks and plates.
 
 -----
 

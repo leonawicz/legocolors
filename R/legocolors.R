@@ -1,15 +1,22 @@
-#' Lego color data.
+#' legocolors: Create LDraw format files.
 #'
-#' A data frame containing Lego color data.
+#' \code{legocolors} provides a dataset containing several color naming
+#' conventions established by multiple sources, along with associated color
+#' metadata.
 #'
-#' @format A data frame with 13 columns and 165 rows.
-"legocolors"
-
-#' Lego color palettes.
+#' The package also provides related helper functions for mapping among the
+#' different Lego color naming conventions and between Lego colors, hex colors,
+#' and 'R' color names, making it easy to convert any color palette to one
+#' based on existing Lego colors while keeping as close to the original color
+#' palette as possible.
 #'
-#' A named list of nine Lego color palettes based on \code{legocolors$material}.
-#' Because these palettes represent a meaningful segmentation of Lego material types,
-#' they are not intended to represent useful color palettes for mapping data values to colors.
+#' The functions use nearest color matching based on Euclidean distance in RGB
+#' space. Naming conventions for color mapping include those from
+#' \href{https://www.bricklink.com}{BrickLink},
+#' \href{https://www.lego.com}{The Lego Group},
+#' \href{https://www.ldraw.org/}{LDraw}, and
+#' \href{http://www.peeron.com/}{Peeron}.
 #'
-#' @format A named list of nine color palettes.
-"legopals"
+#' @docType package
+#' @name legocolors-package
+NULL

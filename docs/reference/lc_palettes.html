@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • legocolors</title>
+<title>Predefined palettes and palette generators — lc_palettes • legocolors</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Predefined palettes and palette generators — lc_palettes" />
+<meta property="og:description" content="These functions are analogs to familiar R color palettes but based on Lego
+colors." />
 <meta property="og:image" content="http://leonawicz.github.io/legocolors/logo.png" />
 
 
@@ -68,7 +70,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -118,105 +120,44 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Predefined palettes and palette generators</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/legocolors/blob/master/R/palettes.R'><code>R/palettes.R</code></a></small>
+    <div class="hidden name"><code>lc_palettes.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p>These functions are analogs to familiar R color palettes but based on Lego
+colors.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>lc_terrain</span>(<span class='no'>n</span>)
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-package" class="hasAnchor"><a href="#section-package" class="anchor"></a>Package</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolors-package.html">legocolors-package</a></code> </p>
-        </td>
-        <td><p>legocolors: Create LDraw format files.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolors.html">legocolors</a></code> </p>
-        </td>
-        <td><p>Lego color data.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="legopals.html">legopals</a></code> </p>
-        </td>
-        <td><p>Lego color palettes.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-color-mapping" class="hasAnchor"><a href="#section-color-mapping" class="anchor"></a>Color mapping</h2>
-          <p class="section-desc"><p>Map between R color names, hex codes and Lego color definitions</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolor.html">hex_to_color()</a></code> <code><a href="legocolor.html">hex_to_legocolor()</a></code> <code><a href="legocolor.html">legocolor_to_hex()</a></code> <code><a href="legocolor.html">view_legopal()</a></code> </p>
-        </td>
-        <td><p>Color mapping</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-additional-palettes" class="hasAnchor"><a href="#section-additional-palettes" class="anchor"></a>Additional palettes</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="lc_palettes.html">lc_terrain()</a></code> <code><a href="lc_palettes.html">lc_topo()</a></code> <code><a href="lc_palettes.html">lc_heat()</a></code> </p>
-        </td>
-        <td><p>Predefined palettes and palette generators</p></td>
-      </tr>
-    </tbody>
+<span class='fu'>lc_topo</span>(<span class='no'>n</span>)
+
+<span class='fu'>lc_heat</span>(<span class='no'>n</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>n</th>
+      <td><p>if not provided, return the vector of official Lego colors defining
+the palette. If provided, return an interpolated palette, which will contain
+non-Lego colors only if <code>n</code> is greater than the palette definition.</p></td>
+    </tr>
     </table>
-  </div>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>character vector of hex colors</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>lc_terrain</span>()</div><div class='output co'>#&gt;  [1] "#00451A" "#00852B" "#8B844F" "#708E7C" "#A5CA18" "#FAC80A" "#91501C"
+#&gt;  [8] "#5F3109" "#897D62" "#CCB98D" "#F4F4F4"</div><div class='input'><span class='fu'>lc_terrain</span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "#00451A" "#708E7C" "#5F3109" "#F4F4F4"</div><div class='input'>
+<span class='fu'>lc_topo</span>()</div><div class='output co'>#&gt; [1] "#CCB98D" "#FAC80A" "#A5CA18" "#7396C8" "#19325A"</div><div class='input'><span class='fu'>lc_heat</span>()</div><div class='output co'>#&gt; <span class='error'>Error in .lc_palette(.lc_heat, n): object '.lc_heat' not found</span></div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>

@@ -2,5 +2,8 @@
 
 export(hex_to_color)
 export(hex_to_legocolor)
+export(lc_heat)
+export(lc_terrain)
+export(lc_topo)
 export(legocolor_to_hex)
 export(view_legopal)

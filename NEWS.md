@@ -1,6 +1,8 @@
-# legocolors 0.2.1
+# legocolors 0.3.0
 
-* In progress.
+* Added palette functions.
+* Updated `legocolors` dataset: updated colors, removed `bl_bp` column, `recommended` column is still of limited utility and subject to change.
+* Updated package documentation.
 
 # legocolors 0.2.0
 

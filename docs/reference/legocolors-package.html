@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • legocolors</title>
+<title>legocolors: Create LDraw format files. — legocolors-package • legocolors</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,7 +48,10 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="legocolors: Create LDraw format files. — legocolors-package" />
+<meta property="og:description" content="legocolors provides a dataset containing several color naming
+conventions established by multiple sources, along with associated color
+metadata." />
 <meta property="og:image" content="http://leonawicz.github.io/legocolors/logo.png" />
 
 
@@ -68,7 +71,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -118,105 +121,36 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>legocolors: Create LDraw format files.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leonawicz/legocolors/blob/master/R/legocolors.R'><code>R/legocolors.R</code></a></small>
+    <div class="hidden name"><code>legocolors-package.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    <p><code>legocolors</code> provides a dataset containing several color naming
+conventions established by multiple sources, along with associated color
+metadata.</p>
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-package" class="hasAnchor"><a href="#section-package" class="anchor"></a>Package</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolors-package.html">legocolors-package</a></code> </p>
-        </td>
-        <td><p>legocolors: Create LDraw format files.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-datasets" class="hasAnchor"><a href="#section-datasets" class="anchor"></a>Datasets</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolors.html">legocolors</a></code> </p>
-        </td>
-        <td><p>Lego color data.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="legopals.html">legopals</a></code> </p>
-        </td>
-        <td><p>Lego color palettes.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-color-mapping" class="hasAnchor"><a href="#section-color-mapping" class="anchor"></a>Color mapping</h2>
-          <p class="section-desc"><p>Map between R color names, hex codes and Lego color definitions</p></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="legocolor.html">hex_to_color()</a></code> <code><a href="legocolor.html">hex_to_legocolor()</a></code> <code><a href="legocolor.html">legocolor_to_hex()</a></code> <code><a href="legocolor.html">view_legopal()</a></code> </p>
-        </td>
-        <td><p>Color mapping</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-additional-palettes" class="hasAnchor"><a href="#section-additional-palettes" class="anchor"></a>Additional palettes</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      
-      
-    </tbody><tbody>
-      
-      
-      <tr>
-        
-        <td>
-          <p><code><a href="lc_palettes.html">lc_terrain()</a></code> <code><a href="lc_palettes.html">lc_topo()</a></code> <code><a href="lc_palettes.html">lc_heat()</a></code> </p>
-        </td>
-        <td><p>Predefined palettes and palette generators</p></td>
-      </tr>
-    </tbody>
-    </table>
+
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The package also provides related helper functions for mapping among the
+different Lego color naming conventions and between Lego colors, hex colors,
+and 'R' color names, making it easy to convert any color palette to one
+based on existing Lego colors while keeping as close to the original color
+palette as possible.</p>
+<p>The functions use nearest color matching based on Euclidean distance in RGB
+space. Naming conventions for color mapping include those from
+<a href='https://www.bricklink.com'>BrickLink</a>,
+<a href='https://www.lego.com'>The Lego Group</a>,
+<a href='https://www.ldraw.org/'>LDraw</a>, and
+<a href='http://www.peeron.com/'>Peeron</a>.</p>
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
