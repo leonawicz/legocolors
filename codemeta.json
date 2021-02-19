@@ -78,9 +78,13 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/legocolors/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/legocolors/blob/master/README.md",
-  "fileSize": "552.153KB",
+  "fileSize": "552.131KB",
   "contIntegration": ["https://travis-ci.org/leonawicz/legocolors", "https://ci.appveyor.com/project/leonawicz/legocolors", "https://codecov.io/gh/leonawicz/legocolors?branch=master"],
-  "developmentStatus": "http://www.repostatus.org/#active",
+  "developmentStatus": "https://www.repostatus.org/",
   "relatedLink": "https://CRAN.R-project.org/package=legocolors",
-  "keywords": ["r-package", "lego", "color-palettes"]
+  "keywords": [
+    "r-package",
+    "lego",
+    "color-palettes"
+  ]
 }
