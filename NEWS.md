@@ -1,3 +1,7 @@
+# legocolors 0.3.1
+
+* Documentation updates.
+
 # legocolors 0.3.0
 
 * Added palette functions.

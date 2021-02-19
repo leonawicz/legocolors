@@ -1,11 +1,11 @@
 Package: legocolors
 Title: Official Lego Color Palettes
-Version: 0.3.0
+Version: 0.3.1
 Authors@R: 
     person(given = "Matthew",
            family = "Leonawicz",
            role = c("aut", "cre"),
-           email = "matt_leonawicz@esource.com")
+           email = "mfleonawicz@gmail.com")
 Description: Provides a dataset containing several color naming conventions established by multiple sources, along with associated color metadata.
     The package also provides related helper functions for mapping among the different Lego color naming conventions and between Lego colors, hex colors, and 'R' color names, 
     making it easy to convert any color palette to one based on existing Lego colors while keeping as close to the original color palette as possible.
@@ -21,4 +21,4 @@ Suggests:
     testthat,
     covr
 Language: en-US
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1

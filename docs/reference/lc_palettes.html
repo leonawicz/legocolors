@@ -83,7 +83,7 @@ colors." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">legocolors</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.3.1</span>
       </span>
     </div>
 
@@ -91,7 +91,7 @@ colors." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -105,7 +105,7 @@ colors." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/leonawicz/legocolors">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -132,11 +132,11 @@ colors." />
 colors.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>lc_terrain</span>(<span class='no'>n</span>)
+    <pre class="usage"><span class='fu'>lc_terrain</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
 
-<span class='fu'>lc_topo</span>(<span class='no'>n</span>)
+<span class='fu'>lc_topo</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span>
 
-<span class='fu'>lc_heat</span>(<span class='no'>n</span>)</pre>
+<span class='fu'>lc_heat</span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -154,9 +154,13 @@ non-Lego colors only if <code>n</code> is greater than the palette definition.</
     <p>character vector of hex colors</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>lc_terrain</span>()</div><div class='output co'>#&gt;  [1] "#00451A" "#00852B" "#8B844F" "#708E7C" "#A5CA18" "#FAC80A" "#91501C"
-#&gt;  [8] "#5F3109" "#897D62" "#CCB98D" "#F4F4F4"</div><div class='input'><span class='fu'>lc_terrain</span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "#00451A" "#708E7C" "#5F3109" "#F4F4F4"</div><div class='input'>
-<span class='fu'>lc_topo</span>()</div><div class='output co'>#&gt; [1] "#CCB98D" "#FAC80A" "#A5CA18" "#7396C8" "#19325A"</div><div class='input'><span class='fu'>lc_heat</span>()</div><div class='output co'>#&gt; <span class='error'>Error in .lc_palette(.lc_heat, n): object '.lc_heat' not found</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>lc_terrain</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] "#00451A" "#00852B" "#8B844F" "#708E7C" "#A5CA18" "#FAC80A" "#91501C"
+#&gt;  [8] "#5F3109" "#897D62" "#CCB98D" "#F4F4F4"</div><div class='input'><span class='fu'>lc_terrain</span><span class='op'>(</span><span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "#00451A" "#708E7C" "#5F3109" "#F4F4F4"</div><div class='input'>
+<span class='fu'>lc_topo</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "#CCB98D" "#FAC80A" "#A5CA18" "#7396C8" "#19325A"</div><div class='input'><span class='fu'>lc_heat</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "#F4F4F4" "#FAC80A" "#D67923" "#B40000" "#720012"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -172,7 +176,7 @@ non-Lego colors only if <code>n</code> is greater than the palette definition.</
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

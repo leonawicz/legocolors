@@ -10,14 +10,13 @@
   "codeRepository": "https://github.com/leonawicz/legocolors",
   "issueTracker": "https://github.com/leonawicz/legocolors/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.3",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.3 (2020-02-29)",
+  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -29,7 +28,7 @@
       "@type": "Person",
       "givenName": "Matthew",
       "familyName": "Leonawicz",
-      "email": "matt_leonawicz@esource.com"
+      "email": "mfleonawicz@gmail.com"
     }
   ],
   "contributor": {},
@@ -40,7 +39,7 @@
       "@type": "Person",
       "givenName": "Matthew",
       "familyName": "Leonawicz",
-      "email": "matt_leonawicz@esource.com"
+      "email": "mfleonawicz@gmail.com"
     }
   ],
   "softwareSuggestions": [
@@ -79,12 +78,9 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/legocolors/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/legocolors/blob/master/README.md",
-  "fileSize": "79.673KB",
-  "contIntegration": [
-    "https://travis-ci.org/leonawicz/legocolors",
-    "https://ci.appveyor.com/project/leonawicz/legocolors",
-    "https://codecov.io/gh/leonawicz/legocolors?branch=master"
-  ],
+  "fileSize": "552.153KB",
+  "contIntegration": ["https://travis-ci.org/leonawicz/legocolors", "https://ci.appveyor.com/project/leonawicz/legocolors", "https://codecov.io/gh/leonawicz/legocolors?branch=master"],
   "developmentStatus": "http://www.repostatus.org/#active",
-  "relatedLink": "https://CRAN.R-project.org/package=legocolors"
+  "relatedLink": "https://CRAN.R-project.org/package=legocolors",
+  "keywords": ["r-package", "lego", "color-palettes"]
 }
