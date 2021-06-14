@@ -10,13 +10,13 @@
   "codeRepository": "https://github.com/leonawicz/legocolors",
   "issueTracker": "https://github.com/leonawicz/legocolors/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.3 (2020-10-10)",
+  "runtimePlatform": "R version 4.0.5 (2021-03-31)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -78,7 +78,7 @@
   ],
   "releaseNotes": "https://github.com/leonawicz/legocolors/blob/master/NEWS.md",
   "readme": "https://github.com/leonawicz/legocolors/blob/master/README.md",
-  "fileSize": "552.131KB",
+  "fileSize": "548.497KB",
   "contIntegration": ["https://travis-ci.org/leonawicz/legocolors", "https://ci.appveyor.com/project/leonawicz/legocolors", "https://codecov.io/gh/leonawicz/legocolors?branch=master"],
   "developmentStatus": "https://www.repostatus.org/",
   "relatedLink": "https://CRAN.R-project.org/package=legocolors",

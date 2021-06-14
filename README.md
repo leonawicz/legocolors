@@ -143,6 +143,17 @@ acquire in quantity. When determining what colors you wish to use to
 build a physical model, you will save an incredible amount of money if
 you can accept limiting your palette to the most common Lego colors.
 
+## Citation
+
+Matthew Leonawicz (2021). legocolors: Official Lego Color Palettes. R
+package version 0.3.2. <https://github.com/leonawicz/legocolors>
+
+## Contribute
+
+Contributions are welcome. Contribute through GitHub via pull request.
+Please create an issue first if it is regarding any substantive feature
+add or change.
+
 -----
 
 Please note that the `legocolors` project is released with a

@@ -89,6 +89,14 @@ Filtering to a decent set of Lego colors that are relatively easy to acquire onl
 
 In the previous version of `legocolors`, brick- and plate- specific data, excluding more exotic parts, was scraped from the website catalog, but this has become too difficult to do reliably. For now, you will have to use your personal Lego knowledge to filter out irrelevant or problematic colors from the complete official set. This is worth considering because even though BrickLink consistently offers the widest selection and greatest quantity at the lowest price, supply and demand leads to some parts in some colors being prohibitively expensive to acquire in quantity. When determining what colors you wish to use to build a physical model, you will save an incredible amount of money if you can accept limiting your palette to the most common Lego colors.
 
+## Citation
+
+Matthew Leonawicz (2021). legocolors: Official Lego Color Palettes. R package version 0.3.2. https://github.com/leonawicz/legocolors
+
+## Contribute
+
+Contributions are welcome. Contribute through GitHub via pull request. Please create an issue first if it is regarding any substantive feature add or change.
+
 ---
 
 Please note that the `legocolors` project is released with a [Contributor Code of Conduct](https://leonawicz.github.io/legocolors/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

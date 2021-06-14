@@ -1,6 +1,6 @@
 Package: legocolors
 Title: Official Lego Color Palettes
-Version: 0.3.1
+Version: 0.3.2
 Authors@R: 
     person(given = "Matthew",
            family = "Leonawicz",
