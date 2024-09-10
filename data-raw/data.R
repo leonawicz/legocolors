@@ -35,7 +35,7 @@ f <- function(r, g, b){
 
 d <- tibble(d) %>% filter(!is.na(bl_name)) %>% select(c(1:8, 10:11, 13:16)) %>% mutate(hex = f(r, g, b))
 d$hex[match(missing_colors$bl_name, d$bl_name)] <- missing_colors$hex
-legocolors <- select(d, -c(r, b, g)) %>% mutate_at(c(2, 4, 6, 9:10), as.integer) %>%
+legoCols <- select(d, -c(r, b, g)) %>% mutate_at(c(2, 4, 6, 9:10), as.integer) %>%
   mutate(material = factor(tolower(material), levels = unique(tolower(material)))) %>% arrange(material, bl_id)
 
 bl_color_data <- function(){
@@ -59,22 +59,22 @@ bl_color_data <- function(){
 
 x <- bl_color_data()
 
-legocolors <- filter(legocolors, !is.na(hex))
+legoCols <- filter(legoCols, !is.na(hex))
 
-legopals <- split(legocolors$hex, legocolors$material)
+legoPals <- split(legoCols$hex, legoCols$material)
 
-legocolors$bl_bp <- x$availability[match(legocolors$bl_id, x$ID)]
+legoCols$bl_bp <- x$availability[match(legoCols$bl_id, x$ID)]
 
-d_rec <- arrange(legocolors, desc(bl_bp)) %>%
+d_rec <- arrange(legoCols, desc(bl_bp)) %>%
   filter(is.na(year_retired) & material == "solid" & bl_bp > 0.03 &
            !grepl("^Bright|Nougat|Dark Azure|Magenta|Lavender", bl_name)) %>%
   select(bl_name, bl_bp) %>% distinct()
 data.frame(d_rec)
 
-legocolors$recommended <- legocolors$bl_name %in% d_rec$bl_name
-legocolors$bl_bp <- NULL
+legoCols$recommended <- legoCols$bl_name %in% d_rec$bl_name
+legoCols$bl_bp <- NULL
 
-usethis::use_data(legocolors, legopals, overwrite = TRUE)
+usethis::use_data(legoCols, legoPals, overwrite = TRUE)
 
 bl_terrain_names <- c(
   "Dark Green", "Green", "Olive Green", "Sand Green", "Lime", "Yellow",
@@ -83,9 +83,9 @@ bl_terrain_names <- c(
 bl_topo_names <- c("Tan", "Yellow", "Lime", "Medium Blue", "Dark Blue")
 bl_heat_names <- c("White", "Yellow", "Orange", "Red", "Dark Red")
 
-.lc_terrain <- legocolors$hex[match(bl_terrain_names, legocolors$bl_name)]
-.lc_topo <- legocolors$hex[match(bl_topo_names, legocolors$bl_name)]
-.lc_heat <- legocolors$hex[match(bl_heat_names, legocolors$bl_name)]
+.lc_terrain <- legoCols$hex[match(bl_terrain_names, legoCols$bl_name)]
+.lc_topo <- legoCols$hex[match(bl_topo_names, legoCols$bl_name)]
+.lc_heat <- legoCols$hex[match(bl_heat_names, legoCols$bl_name)]
 
 usethis::use_data(.lc_terrain, .lc_topo, .lc_heat,
                   internal = TRUE, overwrite = TRUE)

@@ -11,11 +11,11 @@ authors:
 reference:
 - title: Package
   contents:
-  - legocolors-package
+  - legocolors
 - title: Datasets
   contents:
-  - legocolors
-  - legopals
+  - legoCols
+  - legoPals
 - title: Color mapping
   desc: "Map between R color names, hex codes and Lego color definitions"
   contents:

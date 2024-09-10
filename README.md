@@ -3,29 +3,21 @@
 
 # legocolors <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 
-**Author:** [Matthew Leonawicz](https://github.com/leonawicz)
-<a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
-<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
-<br/> **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
+<!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-[![Travis build
-status](https://travis-ci.org/leonawicz/legocolors.svg?branch=master)](https://travis-ci.org/leonawicz/legocolors)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/leonawicz/legocolors?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/legocolors)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
+[![R-CMD-check](https://github.com/leonawicz/legocolors/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/leonawicz/legocolors/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/leonawicz/legocolors/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/legocolors?branch=master)
-
+coverage](https://codecov.io/gh/leonawicz/legocolors/graph/badge.svg)](https://app.codecov.io/gh/leonawicz/legocolors)
 [![CRAN
-status](http://www.r-pkg.org/badges/version/legocolors)](https://cran.r-project.org/package=legocolors)
+status](https://www.r-pkg.org/badges/version/legocolors)](https://CRAN.R-project.org/package=legocolors)
 [![CRAN
-downloads](http://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors)
 [![Github
 Stars](https://img.shields.io/github/stars/leonawicz/legocolors.svg?style=social&label=Github)](https://github.com/leonawicz/legocolors)
-
-[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
+<!-- badges: end -->
 
 `legocolors` provides a dataset containing several Lego color naming
 conventions established by various popular sources. It also provides
@@ -56,8 +48,9 @@ remotes::install_github("leonawicz/legocolors")
 
 ## Palette conversions
 
-The key helper functions are `hex_to_legocolor` and `legocolor_to_hex`.
-`hex_to_color` is also provided for general convenience.
+The key helper functions are `hex_to_legocolor()` and
+`legocolor_to_hex()`. `hex_to_color()` is also provided for general
+convenience.
 
 ``` r
 library(legocolors)
@@ -74,14 +67,22 @@ hex_to_color(legocolor_to_hex("Red"))
 
 x <- topo.colors(10)
 hex_to_legocolor(x)
-#>  [1] "~Dark Purple"              "~Blue"                     "~Trans-Dark Blue"          "~Medium Azure"             "~Bright Green"             "~Lime"                    
-#>  [7] "~Glitter Trans-Neon Green" "~Trans-Yellow"             "~Trans-Neon Green"         "~Light Nougat"
+#>  [1] "~Dark Purple"              "~Blue"                    
+#>  [3] "~Trans-Dark Blue"          "~Medium Azure"            
+#>  [5] "~Bright Green"             "~Lime"                    
+#>  [7] "~Glitter Trans-Neon Green" "~Trans-Yellow"            
+#>  [9] "~Trans-Neon Green"         "~Light Nougat"
 hex_to_legocolor(x, material = "solid")
-#>  [1] "~Dark Purple"         "~Blue"                "~Dark Azure"          "~Medium Azure"        "~Bright Green"        "~Lime"                "~Yellow"             
-#>  [8] "~Yellow"              "~Bright Light Yellow" "~Light Nougat"
+#>  [1] "~Dark Purple"         "~Blue"                "~Dark Azure"         
+#>  [4] "~Medium Azure"        "~Bright Green"        "~Lime"               
+#>  [7] "~Yellow"              "~Yellow"              "~Bright Light Yellow"
+#> [10] "~Light Nougat"
 hex_to_legocolor(x, def = "tlg", material = "solid")
-#>  [1] "~Medium Lilac"           "~Bright Blue"            "~Dark Azur"              "~Medium Azur"            "~Bright Green"           "~Bright Yellowish Green"
-#>  [7] "~Bright Yellow"          "~Bright Yellow"          "~Cool Yellow"            "~Light Nougat"
+#>  [1] "~Medium Lilac"           "~Bright Blue"           
+#>  [3] "~Dark Azur"              "~Medium Azur"           
+#>  [5] "~Bright Green"           "~Bright Yellowish Green"
+#>  [7] "~Bright Yellow"          "~Bright Yellow"         
+#>  [9] "~Cool Yellow"            "~Light Nougat"
 ```
 
 While different sets of Lego colors are organized by `material` type,
@@ -107,7 +108,8 @@ view_legopal("solid")
 
 r <- rainbow(9)
 r
-#> [1] "#FF0000" "#FFAA00" "#AAFF00" "#00FF00" "#00FFAA" "#00AAFF" "#0000FF" "#AA00FF" "#FF00AA"
+#> [1] "#FF0000" "#FFAA00" "#AAFF00" "#00FF00" "#00FFAA" "#00AAFF" "#0000FF"
+#> [8] "#AA00FF" "#FF00AA"
 
 view_legopal(r, material = "solid", show_labels = TRUE, label_size = 0.7)
 ```
@@ -118,16 +120,16 @@ view_legopal(r, material = "solid", show_labels = TRUE, label_size = 0.7)
 
 Dealing with
 
-  - Available colors for generic bricks and plates but prohibitively
-    expensive.
-  - Available colors for generic bricks and plates but with low supply.
-  - Colors used only for exotic/specialty parts (not available for
-    bricks and plates).
+- Available colors for generic bricks and plates but prohibitively
+  expensive.
+- Available colors for generic bricks and plates but with low supply.
+- Colors used only for exotic/specialty parts (not available for bricks
+  and plates).
 
 Filtering to a decent set of Lego colors that are relatively easy to
 acquire online at BrickLink.com for simple brick and/or plate parts, and
 relatively affordable, is largely the responsibility of the user. There
-is a `recommended` column in the `legocolors` dataset. However, a
+is a `recommended` column in the `legoCols` dataset. However, a
 human-derived recommendation column would be better (feel free to submit
 a PR if you’d like to improve the package).
 
@@ -145,8 +147,8 @@ you can accept limiting your palette to the most common Lego colors.
 
 ## Citation
 
-Matthew Leonawicz (2021). legocolors: Official Lego Color Palettes. R
-package version 0.3.2. <https://github.com/leonawicz/legocolors>
+Matthew Leonawicz (2024). legocolors: Official Lego Color Palettes. R
+package version 0.4.0. <https://CRAN.R-project.org/package=legocolors>
 
 ## Contribute
 
@@ -154,7 +156,7 @@ Contributions are welcome. Contribute through GitHub via pull request.
 Please create an issue first if it is regarding any substantive feature
 add or change.
 
------
+------------------------------------------------------------------------
 
 Please note that the `legocolors` project is released with a
 [Contributor Code of

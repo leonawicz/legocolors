@@ -5,7 +5,7 @@
 #'
 #' @param n if not provided, return the vector of official Lego colors defining
 #' the palette. If provided, return an interpolated palette, which will contain
-#' non-Lego colors only if \code{n} is greater than the palette definition.
+#' non-Lego colors only if `n` is greater than the palette definition.
 #'
 #' @return character vector of hex colors
 #' @export

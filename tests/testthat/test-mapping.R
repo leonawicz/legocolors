@@ -17,7 +17,7 @@ test_that("functions return as expected", {
   expect_equal(hex_to_legocolor("#B40001"), "~Red")
   expect_equal(hex_to_legocolor("#B40001", approx = FALSE), as.character(NA))
 
-  expect_error(hex_to_legocolor("#B40000", material = "a"), "Invalid material. See `legocolors`.")
+  expect_error(hex_to_legocolor("#B40000", material = "a"), "Invalid material. See `legoCols`.")
 })
 
 test_that("functions return as expected", {

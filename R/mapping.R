@@ -2,14 +2,18 @@
 #'
 #' Map between hex and color names.
 #'
-#' These functions map between hex color codes and color names. Convert any color palette to a palette of the most closely matched official Lego colors.
+#' These functions map between hex color codes and color names. Convert any color
+#' palette to a palette of the most closely matched official Lego colors.
 #'
-#' The two complimentary Lego color mapping functions are \code{hex_to_legocolors} and \code{legocolors_to_hex}.
-#' The first takes a hex color string and converts to the nearest valid Lego color name by Euclidean distance.
-#' The second takes a valid Lego color name and converts to hex.
+#' The two complimentary Lego color mapping functions are `hex_to_legocolors()`
+#' and `legocolors_to_hex()`. The first takes a hex color string and converts to
+#' the nearest valid Lego color name by Euclidean distance. The second takes a
+#' valid Lego color name and converts to hex.
 #'
-#' Valid Lego color names are determined by the definition, \code{def}. The four options provide different name sets for existing Lego colors.
-#' The default is \code{def = "bricklink"}. \href{https://www.bricklink.com}{BrickLink} is the default naming convention source for several reasons:
+#' Valid Lego color names are determined by the definition, `def`. The four
+#' options provide different name sets for existing Lego colors. The default is
+#' `def = "bricklink"`. \href{https://www.bricklink.com}{BrickLink} is the
+#' default naming convention source for several reasons:
 #'
 #' \itemize{
 #' \item It is the most comprehensive and widely used.
@@ -24,21 +28,29 @@
 #' \item There is also the BrickOwl website for custom part ordering, which uses official TLG color names, but is much smaller than BrickLink and tends to have significantly higher prices.
 #' }
 #'
-#' Essentially, when converting an image or 3D model in R into a set of Lego parts that must be custom ordered to construct your design,
-#' BrickLink is the clear best option for obtaining the most complete set of parts required and at the lowest price.
+#' Essentially, when converting an image or 3D model in R into a set of Lego
+#' parts that must be custom ordered to construct your design, BrickLink is the
+#' clear best option for obtaining the most complete set of parts required and
+#' at the lowest price.
 #'
-#' If \code{approx = FALSE}, an unmatched element returns \code{NA}.
+#' If `approx = FALSE`, an unmatched element returns `NA`.
 #'
-#' \code{hex_to_color} is provided for general convenience. It converts hex color codes to the familiar R color names.
-#' Consistent with the Lego-specific mapping functions, by default \code{approx = TRUE} returns the nearest color name based on Euclidean distance.
-#' \code{prefix} allows for prepending an identifier to the beginning of any color name that a hex color code does not match exactly.
+#' `hex_to_color` is provided for general convenience. It converts hex color
+#' codes to the familiar R color names. Consistent with the Lego-specific mapping
+#' functions, by default `approx = TRUE` returns the nearest color name based on
+#' Euclidean distance. `prefix` allows for prepending an identifier to the
+#' beginning of any color name that a hex color code does not match exactly.
 #'
 #' @param x character, hex color or color name. May be a vector. See details.
-#' @param def character, the Lego color name definition to apply: \code{"bricklink"}, \code{"ldraw"}, \code{"tlg"} or \code{"peeron"}. See details.
-#' @param approx logical, find and return closest color name when an exact match does not exist.
+#' @param def character, the Lego color name definition to apply: `"bricklink"`,
+#' `"ldraw"`, `"tlg"` or `"peeron"`. See details.
+#' @param approx logical, find and return closest color name when an exact match
+#' does not exist.
 #' @param prefix character, prefix for approximate color matches.
-#' @param material logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.
-#' @param retired logical, filter out Lego colors that are retired, defaults to \code{FALSE}.
+#' @param material logical, consider only the subset of Lego color names by
+#' filtering on levels of `legoCols$material`. By default, all are considered.
+#' @param retired logical, filter out Lego colors that are retired, defaults to
+#' `FALSE`.
 #' @param show_labels logical, show color name and hex value in palette preview.
 #' @param label_size numeric, text size.
 #'
@@ -76,7 +88,7 @@ hex_to_color <- function(x, approx = TRUE, prefix = "~"){
 #' @rdname legocolor
 hex_to_legocolor <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
                              approx = TRUE, prefix = "~", material = NULL, retired = FALSE){
-  lc <- legocolors::legocolors
+  lc <- legocolors::legoCols
   def <- match.arg(def)
   def <- switch(def, bricklink = "bl_name", ldraw = "ldraw_name", tlg = "lego_name", peeron = "peeron_name")
   col_map <- data.frame(name = lc[[def]], t(grDevices::col2rgb(lc$hex)), hex = lc$hex,
@@ -84,7 +96,7 @@ hex_to_legocolor <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
   col_map$name[is.na(col_map$name)] <- "Unnamed"
   if(!is.null(material)){
     if(any(!material %in% levels(lc$material)))
-      stop("Invalid material. See `legocolors`.")
+      stop("Invalid material. See `legoCols`.")
     col_map <- col_map[col_map$material %in% material, ]
   }
   if(!retired) col_map <- col_map[is.na(col_map$year_retired), ]
@@ -109,7 +121,7 @@ hex_to_legocolor <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
 legocolor_to_hex <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron")){
   def <- match.arg(def)
   def <- switch(def, bricklink = "bl_name", ldraw = "ldraw_name", tlg = "lego_name", peeron = "peeron_name")
-  lc <- legocolors::legocolors
+  lc <- legocolors::legoCols
   idx <- match(x, lc[[def]])
   lc$hex[idx]
 }
@@ -119,7 +131,7 @@ legocolor_to_hex <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron")){
 view_legopal <- function(x, def = c("bricklink", "ldraw", "tlg", "peeron"),
                          approx = TRUE, prefix = "~", material = NULL, retired = FALSE,
                          show_labels = FALSE, label_size = 1){
-  if(length(x) == 1 && x %in% names(legocolors::legopals)) x <- legocolors::legopals[[x]]
+  if(length(x) == 1 && x %in% names(legocolors::legoPals)) x <- legocolors::legoPals[[x]]
   lego <- hex_to_legocolor(x, def, approx, prefix, material, retired)
   x <- legocolor_to_hex(gsub(prefix, "", lego), def)
   n <- length(x)

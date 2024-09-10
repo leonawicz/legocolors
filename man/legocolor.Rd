@@ -35,15 +35,19 @@ view_legopal(
 \arguments{
 \item{x}{character, hex color or color name. May be a vector. See details.}
 
-\item{approx}{logical, find and return closest color name when an exact match does not exist.}
+\item{approx}{logical, find and return closest color name when an exact match
+does not exist.}
 
 \item{prefix}{character, prefix for approximate color matches.}
 
-\item{def}{character, the Lego color name definition to apply: \code{"bricklink"}, \code{"ldraw"}, \code{"tlg"} or \code{"peeron"}. See details.}
+\item{def}{character, the Lego color name definition to apply: \code{"bricklink"},
+\code{"ldraw"}, \code{"tlg"} or \code{"peeron"}. See details.}
 
-\item{material}{logical, consider only the subset of Lego color names by filtering on levels of \code{legocolors$material}. By default, all are considered.}
+\item{material}{logical, consider only the subset of Lego color names by
+filtering on levels of \code{legoCols$material}. By default, all are considered.}
 
-\item{retired}{logical, filter out Lego colors that are retired, defaults to \code{FALSE}.}
+\item{retired}{logical, filter out Lego colors that are retired, defaults to
+\code{FALSE}.}
 
 \item{show_labels}{logical, show color name and hex value in palette preview.}
 
@@ -56,14 +60,18 @@ character vector of color names or hex colors
 Map between hex and color names.
 }
 \details{
-These functions map between hex color codes and color names. Convert any color palette to a palette of the most closely matched official Lego colors.
+These functions map between hex color codes and color names. Convert any color
+palette to a palette of the most closely matched official Lego colors.
 
-The two complimentary Lego color mapping functions are \code{hex_to_legocolors} and \code{legocolors_to_hex}.
-The first takes a hex color string and converts to the nearest valid Lego color name by Euclidean distance.
-The second takes a valid Lego color name and converts to hex.
+The two complimentary Lego color mapping functions are \code{hex_to_legocolors()}
+and \code{legocolors_to_hex()}. The first takes a hex color string and converts to
+the nearest valid Lego color name by Euclidean distance. The second takes a
+valid Lego color name and converts to hex.
 
-Valid Lego color names are determined by the definition, \code{def}. The four options provide different name sets for existing Lego colors.
-The default is \code{def = "bricklink"}. \href{https://www.bricklink.com}{BrickLink} is the default naming convention source for several reasons:
+Valid Lego color names are determined by the definition, \code{def}. The four
+options provide different name sets for existing Lego colors. The default is
+\code{def = "bricklink"}. \href{https://www.bricklink.com}{BrickLink} is the
+default naming convention source for several reasons:
 
 \itemize{
 \item It is the most comprehensive and widely used.
@@ -78,14 +86,18 @@ The default is \code{def = "bricklink"}. \href{https://www.bricklink.com}{BrickL
 \item There is also the BrickOwl website for custom part ordering, which uses official TLG color names, but is much smaller than BrickLink and tends to have significantly higher prices.
 }
 
-Essentially, when converting an image or 3D model in R into a set of Lego parts that must be custom ordered to construct your design,
-BrickLink is the clear best option for obtaining the most complete set of parts required and at the lowest price.
+Essentially, when converting an image or 3D model in R into a set of Lego
+parts that must be custom ordered to construct your design, BrickLink is the
+clear best option for obtaining the most complete set of parts required and
+at the lowest price.
 
 If \code{approx = FALSE}, an unmatched element returns \code{NA}.
 
-\code{hex_to_color} is provided for general convenience. It converts hex color codes to the familiar R color names.
-Consistent with the Lego-specific mapping functions, by default \code{approx = TRUE} returns the nearest color name based on Euclidean distance.
-\code{prefix} allows for prepending an identifier to the beginning of any color name that a hex color code does not match exactly.
+\code{hex_to_color} is provided for general convenience. It converts hex color
+codes to the familiar R color names. Consistent with the Lego-specific mapping
+functions, by default \code{approx = TRUE} returns the nearest color name based on
+Euclidean distance. \code{prefix} allows for prepending an identifier to the
+beginning of any color name that a hex color code does not match exactly.
 }
 \examples{
 hex_to_color(c("#ff0000", "#ff0001"))

@@ -1,3 +1,8 @@
+# legocolors 0.4.0
+
+* Dataset renames.
+* Documentation updates.
+
 # legocolors 0.3.2
 
 * Minor updates.
@@ -9,13 +14,13 @@
 # legocolors 0.3.0
 
 * Added palette functions.
-* Updated `legocolors` dataset: updated colors, removed `bl_bp` column, `recommended` column is still of limited utility and subject to change.
+* Updated `legoCols` dataset: updated colors, removed `bl_bp` column, `recommended` column is still of limited utility and subject to change.
 * Updated package documentation.
 
 # legocolors 0.2.0
 
 * Added `view_legopal` function.
-* Added new columns `bl_bp` (rough BrickLink brick/plate availability metric) and `recommended` (recommended colors, based on relative ease of acquirement) to the `legocolors` dataset.
+* Added new columns `bl_bp` (rough BrickLink brick/plate availability metric) and `recommended` (recommended colors, based on relative ease of acquirement) to the `legoCols` dataset.
 * Documentation updates.
 
 # legocolors 0.1.2

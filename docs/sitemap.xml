@@ -1,21 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/index.html</loc>
-  </url>
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/reference/lc_palettes.html</loc>
-  </url>
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/reference/legocolor.html</loc>
-  </url>
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/reference/legocolors-package.html</loc>
-  </url>
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/reference/legocolors.html</loc>
-  </url>
-  <url>
-    <loc>http://leonawicz.github.io/legocolors/reference/legopals.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://leonawicz.github.io/legocolors/404.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/authors.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/index.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/LICENSE-text.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/LICENSE.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/news/index.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/index.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/lc_palettes.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/legocolor.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/legocolors.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/legoCols.html</loc></url>
+<url><loc>http://leonawicz.github.io/legocolors/reference/legoPals.html</loc></url>
 </urlset>
+

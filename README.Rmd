@@ -9,21 +9,15 @@ knitr::opts_chunk$set(collapse = TRUE, comment = "#>", fig.path = "man/figures/R
 ```
 
 # legocolors <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
-**Author:** [Matthew Leonawicz](https://github.com/leonawicz) <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
-<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
-<br/>
-**License:** [MIT](https://opensource.org/licenses/MIT)<br/>
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
-[![Travis build status](https://travis-ci.org/leonawicz/legocolors.svg?branch=master)](https://travis-ci.org/leonawicz/legocolors)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/leonawicz/legocolors?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/legocolors)
-[![Codecov test coverage](https://codecov.io/gh/leonawicz/legocolors/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/legocolors?branch=master)
-
-[![CRAN status](http://www.r-pkg.org/badges/version/legocolors)](https://cran.r-project.org/package=legocolors)
-[![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors) 
+<!-- badges: start -->
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
+[![R-CMD-check](https://github.com/leonawicz/legocolors/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/leonawicz/legocolors/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/leonawicz/legocolors/graph/badge.svg)](https://app.codecov.io/gh/leonawicz/legocolors)
+[![CRAN status](https://www.r-pkg.org/badges/version/legocolors)](https://CRAN.R-project.org/package=legocolors)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/legocolors)](https://cran.r-project.org/package=legocolors) 
 [![Github Stars](https://img.shields.io/github/stars/leonawicz/legocolors.svg?style=social&label=Github)](https://github.com/leonawicz/legocolors)
-
-[![Donate](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellowgreen.svg)](https://ko-fi.com/leonawicz)
+<!-- badges: end -->
 
 `legocolors` provides a dataset containing several Lego color naming conventions established by various popular sources. It also provides functions for mapping between these color naming conventions as well as between Lego color names, hex colors, and R color names.
 
@@ -46,7 +40,7 @@ remotes::install_github("leonawicz/legocolors")
 
 ## Palette conversions
 
-The key helper functions are `hex_to_legocolor` and `legocolor_to_hex`. `hex_to_color` is also provided for general convenience.
+The key helper functions are `hex_to_legocolor()` and `legocolor_to_hex()`. `hex_to_color()` is also provided for general convenience.
 
 ```{r example}
 library(legocolors)
@@ -85,13 +79,13 @@ Dealing with
 * Available colors for generic bricks and plates but with low supply.
 * Colors used only for exotic/specialty parts (not available for bricks and plates).
 
-Filtering to a decent set of Lego colors that are relatively easy to acquire online at BrickLink.com for simple brick and/or plate parts, and relatively affordable, is largely the responsibility of the user. There is a `recommended` column in the `legocolors` dataset. However, a human-derived recommendation column would be better (feel free to submit a PR if you'd like to improve the package).
+Filtering to a decent set of Lego colors that are relatively easy to acquire online at BrickLink.com for simple brick and/or plate parts, and relatively affordable, is largely the responsibility of the user. There is a `recommended` column in the `legoCols` dataset. However, a human-derived recommendation column would be better (feel free to submit a PR if you'd like to improve the package).
 
 In the previous version of `legocolors`, brick- and plate- specific data, excluding more exotic parts, was scraped from the website catalog, but this has become too difficult to do reliably. For now, you will have to use your personal Lego knowledge to filter out irrelevant or problematic colors from the complete official set. This is worth considering because even though BrickLink consistently offers the widest selection and greatest quantity at the lowest price, supply and demand leads to some parts in some colors being prohibitively expensive to acquire in quantity. When determining what colors you wish to use to build a physical model, you will save an incredible amount of money if you can accept limiting your palette to the most common Lego colors.
 
 ## Citation
 
-Matthew Leonawicz (2021). legocolors: Official Lego Color Palettes. R package version 0.3.2. https://github.com/leonawicz/legocolors
+Matthew Leonawicz (`r substr(Sys.Date(), 1, 4)`). legocolors: Official Lego Color Palettes. R package version 0.4.0. https://CRAN.R-project.org/package=legocolors
 
 ## Contribute
 
